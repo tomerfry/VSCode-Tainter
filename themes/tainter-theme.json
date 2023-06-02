@@ -1,0 +1,16 @@
+{
+    "name": "tainter_syntax.match",
+    "colors": {
+        "editor.selectionBackground": "#FF0000",
+        "editor.selectionHighlightBackground": "#FF0000"
+    },
+    "tokenColors": [
+        {
+            "scope": "expression.tainted",
+            "settings": {
+                "foreground": "#FF0000",
+                "fontStyle": "underline"
+            }
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+  "name": "tainter",
+  "displayName": "Tainter",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "editor/context": [
+        {
+          "command": "tainter.addexpr",
+          "group": "navigation",
+          "when": "editorHasSelection && editorTextFocus"
+        },
+        {
+          "command": "tainter.tclean",
+          "group": "navigation",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "tainter_syntax",
+        "extensions": [".tnt"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tainter_syntax",
+        "scopeName": "tainter_syntax",
+        "path": "./syntaxes/tainter_syntax.grammer.json"
+      }
+    ],
+    "themes": [
+      {
+        "uiTheme": "vs-dark",
+        "id": "tainter_syntax",
+        "path": "./themes/tainter-theme.json",
+        "label": "tainter_syntax_theme"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tainter.addexpr",
+        "title": "Add Expression"
+      },
+      {
+        "command": "tainter.tclean",
+        "title": "Clean Expressions"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.78.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4",
+    "@vscode/test-electron": "^2.3.0"
+  }
+}
